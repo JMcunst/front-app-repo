@@ -32,7 +32,8 @@ jobs:
         run: |
           echo $ACCOUNT_ID
           echo $AWS_REGION
-          export ACCOUNT_ID=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.accountId')
+          cd ~
+          pwd
         
       - name: Login to Amazon ECR
         id: login-ecr
