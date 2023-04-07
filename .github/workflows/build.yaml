@@ -32,8 +32,6 @@ jobs:
         run: |
           echo $ACCOUNT_ID
           echo $AWS_REGION
-          cd ~
-          pwd
           export ACCOUNT_ID=644631683002
           echo $ACCOUNT_ID
         
