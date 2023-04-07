@@ -28,9 +28,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-1
       
-      - name: Account ID Set
-        run: |
-          apt install jq
+      - name: Extract version from package.json for jq
+        uses: sergeysova/jq-action@v2
+        id: version
+        with:
+          cmd: 'jq .version package.json -r'
 
       - name: Account ID Set
         run: |
