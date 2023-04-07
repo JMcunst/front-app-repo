@@ -30,7 +30,7 @@ jobs:
       
       - name: Account ID Set
         run: |
-          sudo apt install jq
+          apt install jq
 
       - name: Account ID Set
         run: |
