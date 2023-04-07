@@ -8,10 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node-version: [16.x]
+    container: node:16-alpine
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
