@@ -41,7 +41,7 @@ jobs:
           echo $ACCOUNT_ID
           ACCOUNT_ID=$(cat account_id.txt)
           echo $AWS_REGION
-          echo ACCOUNT_ID
+          echo $ACCOUNT_ID
         
       - name: Login to Amazon ECR
         id: login-ecr
