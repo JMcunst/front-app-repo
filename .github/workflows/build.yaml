@@ -30,12 +30,21 @@ jobs:
 
       - name: Account ID Set
         run: |
+          echo =====WHERE=====
           pwd
+          echo =====WHO_AM_I=====
           whoami
+          echo =====WAHT_IS_HERE=====
+          ls -al
+          echo =====ACCOUNT_ID=====
           echo $ACCOUNT_ID
+          echo =====CAT_ACCOUNT_ID=====
           cat account_id.txt
+          echo =====RUN_BUILD_SHELL=====
           build.sh
+          echo =====AWS_REGION=====
           echo $AWS_REGION
+          echo =====ACCOUNT_ID=====
           echo $ACCOUNT_ID
         
       - name: Login to Amazon ECR
