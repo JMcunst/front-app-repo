@@ -41,7 +41,7 @@ jobs:
           echo =====CAT_ACCOUNT_ID=====
           cat account_id.txt
           echo =====RUN_BUILD_SHELL=====
-          build.sh
+          sh $(ls -al |grep build | tail -1 | awk '{ print $9 }')
           echo =====AWS_REGION=====
           echo $AWS_REGION
           echo =====ACCOUNT_ID=====
