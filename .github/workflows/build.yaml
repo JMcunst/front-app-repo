@@ -37,7 +37,7 @@ jobs:
           echo =====WAHT_IS_HERE=====
           ls -al
           echo =====ACCOUNT_ID=====
-          echo $ACCOUNT_ID
+          aws sts get-caller-identity --query "Account" --output text
           echo =====CAT_ACCOUNT_ID=====
           cat account_id.txt
           echo =====RUN_BUILD_SHELL=====
