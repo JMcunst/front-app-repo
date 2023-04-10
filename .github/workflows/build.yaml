@@ -34,7 +34,7 @@ jobs:
           whoami
           echo $ACCOUNT_ID
           cat account_id.txt
-          ./build.sh
+          build.sh
           echo $AWS_REGION
           echo $ACCOUNT_ID
         
