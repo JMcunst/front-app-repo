@@ -27,6 +27,15 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-1
+          
+      - name: S3 Sync
+        uses: ItsKarma/aws-cli@v1.70.0
+        with:
+          args: aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin $ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ap-northeast-1
 
       - name: Account ID Set
         run: |
@@ -36,8 +45,6 @@ jobs:
           whoami
           echo =====WAHT_IS_HERE=====
           ls -al
-          echo =====ACCOUNT_ID=====
-          aws sts get-caller-identity --query "Account" --output text
           echo =====CAT_ACCOUNT_ID=====
           cat account_id.txt
           echo =====RUN_BUILD_SHELL=====
@@ -47,9 +54,9 @@ jobs:
           echo =====ACCOUNT_ID=====
           echo $ACCOUNT_ID
         
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
+#       - name: Login to Amazon ECR
+#         id: login-ecr
+#         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Get image tag(verion)
         id: image
