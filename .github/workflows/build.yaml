@@ -34,7 +34,7 @@ jobs:
           whoami
           echo $ACCOUNT_ID
           cat account_id.txt
-          ACCOUNT_ID=${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          ./build.sh
           echo $AWS_REGION
           echo $ACCOUNT_ID
         
